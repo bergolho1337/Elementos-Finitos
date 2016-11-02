@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# ====================================================================================================================================
+# Shell script da preguica >>>> Compila, executa, plota <<<<<
+
+DX=0.001                       # Tamanho da discretizacao para o plot
+# ====================================================================================================================================
+
+echo "=========================================================================================="
+echo "[!] EXECUTANDO SHELL SCRIPT DA PREGUICA                            ||____||"
+echo "zZzZZZzzzZzzzzZzzzZZZZZZZZZZZzzzZZZzzZZzzz                         /     /|"
+echo "                                                                  /     /"
+echo "                                                                 /____ /"
+echo "                                                                 |    |"
+echo "=========================================================================================="
+
+# Existe uma versao anterior do executavel, deletar arquivos da ultima execucao com clean do Makefile
+if [ -f "diff" ]; then
+  echo "----> [!] Deletando versoes anteriores ..."
+  make clean
+  echo "****************************************************************************************"
+fi
+
+# Compilar codigo fonte
+echo "----> [!] Compilando codigo fonte ..."
+make
+echo "******************************************************************************************"
+
+# Chamar o executavel com os parametros definidos no cabecalho desse shell
+echo "----> [!] Executando programa ..."
+./diff $DX
+echo "******************************************************************************************"
+
+# Executar script de plot do grafico
+echo "----> [!] Plotando o grafico dos resultados obtidos ... "
+python plot.py
+echo "******************************************************************************************"
+
+echo "[!] Finalizando shell script ..."
+echo "=========================================================================================="
+
+exit 0
