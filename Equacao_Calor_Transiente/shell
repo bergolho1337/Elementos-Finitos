@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# ====================================================================================================================================
+# Shell script da preguica >>>> Compila, executa, plota <<<<<
+
+NELEM=50
+DT=0.01
+XMAX=1.0
+TMAX=0.1
+# ====================================================================================================================================
+# Existe uma versao anterior do executavel, deletar arquivos da ultima execucao com clean do Makefile
+if [ -f "calor" ]; then
+  echo "----> [!] Deletando versoes anteriores ..."
+  make clean
+  echo "****************************************************************************************"
+fi
+
+# Compilar codigo fonte
+echo "----> [!] Compilando codigo fonte ..."
+make
+echo "******************************************************************************************"
+
+# Chamar o executavel com os parametros definidos no cabecalho desse shell
+echo "----> [!] Executando programa ..."
+./calor $NELEM $DT $TMAX $XMAX
+echo "******************************************************************************************"
+
+# Executar script de plot do grafico
+echo "----> [!] Plotando o grafico dos resultados obtidos ... "
+#python plot.py $DT $TMAX
+python plot_surface.py
+echo "******************************************************************************************"
+
+echo "[!] Finalizando shell script ..."
+echo "=========================================================================================="
+
+exit 0
