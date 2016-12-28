@@ -33,7 +33,8 @@ int main (int argc, char *argv[])
     printf("<mesh_file> = Arquivo contendo a malha com os elementos e os pontos definidos\n");
     printf("[!] DEBUGACAO EH ATIVADA POR FLAG NO ARQUIVO \"monodomainFEM.h\".\n");
     printf("------------------------------------------------------------------\n");
-    printf("Exemplo: ./purkinjeFEM 0.1 200 Malhas/malhaElem5_1.txt\n");
+    printf("Exemplo: ./purkinjeFEM 0.1 200 Malhas/malha50_1.txt\n");
+    printf("Depois abrir o .vtk com o Paraview\n");
     printf("==================================================================\n");
     return 1;
   }
