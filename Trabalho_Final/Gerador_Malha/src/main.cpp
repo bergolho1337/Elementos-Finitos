@@ -14,6 +14,8 @@ int main (int argc, char *argv[])
         printf("<type> = Tipo de malha\n");
         printf("\t1 = Fibra simples\n");
         printf("\t2 = Fibra com uma bifurcacao\n");
+        printf("\t3 = Fibra com uma trifircacao\n");
+        printf("\t4 = FIbra gerada pelo L-System\n");
         printf("<file_name> = Nome do arquivo de saida\n");
         exit(-1);
     }
